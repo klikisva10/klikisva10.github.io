@@ -12,7 +12,7 @@ body {
   color: white;
 }
 
-/* Top audio bar */
+/* Audio bar */
 .audio-bar {
   padding: 15px;
   text-align: center;
@@ -23,7 +23,6 @@ body {
 /* Main layout */
 .container {
   display: flex;
-  min-height: 80vh;
 }
 
 /* Columns */
@@ -32,17 +31,12 @@ body {
   padding: 40px;
 }
 
-/* Left column style */
-.left {
+/* Divider between columns */
+.column:not(:last-child) {
   border-right: 1px solid #333;
 }
 
-/* Right column text */
-h2 {
-  margin-top: 0;
-}
-
-/* Photo row */
+/* Photo layout */
 .photo-row {
   display: flex;
   gap: 15px;
@@ -72,30 +66,29 @@ h2 {
   opacity: 0.9;
 }
 </style>
-
 </head>
+
 <body>
 
-<!-- AUDIO PLAYER -->
+<!-- AUDIO -->
 <div class="audio-bar">
   <audio controls preload="auto">
     <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support audio.
   </audio>
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 <div class="container">
 
-  <!-- LEFT COLUMN -->
-  <div class="column left">
+  <!-- LEFT COLUMN (your original idea) -->
+  <div class="column">
     <h2>Memorial / Portfolio</h2>
     <p>
       This is a personal space built to represent memories, identity, and presence.
     </p>
   </div>
 
-  <!-- RIGHT COLUMN -->
+  <!-- MIDDLE COLUMN (NEW - your quote + photos) -->
   <div class="column">
     <h2>About</h2>
 
