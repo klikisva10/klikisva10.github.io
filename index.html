@@ -1,160 +1,127 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Η ζωή του klkisva10</title>
+<meta charset="UTF-8">
+<title>Portfolio Site</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: "Georgia", serif;
-            background: #0f0f0f;
-            color: #eaeaea;
-            line-height: 1.8;
-        }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f0f0f;
+  color: white;
+}
 
-        header {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(to bottom, #1b1b1b, #0f0f0f);
-            border-bottom: 1px solid #333;
-        }
+/* Top audio bar */
+.audio-bar {
+  padding: 15px;
+  text-align: center;
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
+/* Main layout */
+.container {
+  display: flex;
+  min-height: 80vh;
+}
 
-        header p {
-            color: #aaa;
-            font-style: italic;
-            margin-top: 10px;
-        }
+/* Columns */
+.column {
+  flex: 1;
+  padding: 40px;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+/* Left column style */
+.left {
+  border-right: 1px solid #333;
+}
 
-        section {
-            margin-bottom: 50px;
-            padding: 25px;
-            background: #161616;
-            border-radius: 12px;
-            border: 1px solid #2a2a2a;
-        }
+/* Right column text */
+h2 {
+  margin-top: 0;
+}
 
-        h2 {
-            border-left: 4px solid #888;
-            padding-left: 10px;
-            margin-bottom: 15px;
-        }
+/* Photo row */
+.photo-row {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
 
-        .quote {
-            font-style: italic;
-            color: #bbb;
-            text-align: center;
-            margin: 30px 0;
-        }
+.photo {
+  flex: 1;
+  text-align: center;
+}
 
-        img {
-            width: 100%;
-            border-radius: 10px;
-            margin-top: 10px;
-        }
+.photo img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+}
 
-        audio {
-            width: 100%;
-            margin-top: 10px;
-        }
+/* Bottom image */
+.bottom-image {
+  text-align: center;
+  padding: 40px;
+}
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #666;
-            border-top: 1px solid #222;
-        }
-    </style>
+.bottom-image img {
+  width: 250px;
+  border-radius: 15px;
+  opacity: 0.9;
+}
+</style>
+
 </head>
-
 <body>
 
-<header>
-    <h1>Η ζωή του klkisva10</h1>
-    <p>Ένα αρχείο αναμνήσεων, σκέψεων και στιγμών</p>
-</header>
+<!-- AUDIO PLAYER -->
+<div class="audio-bar">
+  <audio controls preload="auto">
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+</div>
 
+<!-- MAIN CONTENT -->
 <div class="container">
 
-    <section>
-        <h2>Προσωπικό Αρχείο</h2>
-        <p>
-            Αυτός ο ιστότοπος αποτελεί μια συλλογή από σκέψεις, εμπειρίες,
-            ιδέες και στιγμές που διαμόρφωσαν τον <b>klkisva10</b>.
-        </p>
-    </section>
+  <!-- LEFT COLUMN -->
+  <div class="column left">
+    <h2>Memorial / Portfolio</h2>
+    <p>
+      This is a personal space built to represent memories, identity, and presence.
+    </p>
+  </div>
 
-    <section>
-        <h2>Βιογραφία</h2>
-        <p class="quote">
-            «Κάποιοι άνθρωποι περνούν από τη ζωή. Άλλοι αφήνουν πίσω τους κάτι που δεν ξεχνιέται.»
-        </p>
+  <!-- RIGHT COLUMN -->
+  <div class="column">
+    <h2>About</h2>
 
-        <p>
-            Ο klkisva10 υπήρξε ένας άνθρωπος με βαθιά καλοσύνη και σπάνια γενναιοδωρία.
-            Η παρουσία του επηρέαζε τους γύρω του με τρόπο ήρεμο αλλά ουσιαστικό.
-        </p>
+    <p>
+      Γεννημένος στα Εξάρχεια, η καρδιά στη Νέα Υόρκη.
+    </p>
 
-        <p>
-            Παρότι οι πράξεις του συχνά ξεπερνούσαν το συνηθισμένο,
-            ο ίδιος παρέμενε απίστευτα ταπεινός.
-        </p>
-    </section>
+    <div class="photo-row">
+      <div class="photo">
+        <img src="photo1.jpg" alt="Photo 1">
+        <p>photo1.jpg</p>
+      </div>
 
-    <section>
-        <h2>Ιδέες & Όνειρα</h2>
-        <ul>
-            <li>Ιδέες που δεν ολοκληρώθηκαν ακόμα</li>
-            <li>Στόχοι για το μέλλον</li>
-            <li>Σκέψεις που αξίζουν να μείνουν</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>Patrick</h2>
-
-        <img src="patrick.jpg" alt="Patrick">
-
-        <p class="quote">
-            Μια εικόνα που άξιζε να διατηρηθεί στο αρχείο.
-        </p>
-    </section>
-
-    <section>
-        <h2>Μουσική</h2>
-
-        <p>Ένα τραγούδι από το αρχείο:</p>
-
-        <audio controls>
-            <source src="song.mp3" type="audio/mpeg">
-            Ο browser σου δεν υποστηρίζει το audio player.
-        </audio>
-    </section>
-
-    <section>
-        <h2>Μήνυμα</h2>
-        <p class="quote">
-            «Αν βρίσκεσαι εδώ, σημαίνει ότι κάτι από αυτή τη ζωή έφτασε σε εσένα.»
-        </p>
-    </section>
+      <div class="photo">
+        <img src="photo2.jpg" alt="Photo 2">
+        <p>photo2.jpg</p>
+      </div>
+    </div>
+  </div>
 
 </div>
 
-<footer>
-    © Η ζωή του klkisva10 — ψηφιακό αρχείο μνήμης
-</footer>
+<!-- BOTTOM IMAGE -->
+<div class="bottom-image">
+  <img src="patrick.png" alt="Patrick">
+</div>
 
 </body>
 </html>
