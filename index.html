@@ -176,4 +176,17 @@
 </footer>
 
 </body>
+<body style="display:none;">
+
+<script>
+const password = "tsoularas";
+const entered = prompt("Password:");
+
+if (entered === password) {
+    document.body.style.display = "block";
+} else {
+    document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Access Denied</h1>";
+    document.body.style.display = "block";
+}
+</script>
 </html>
