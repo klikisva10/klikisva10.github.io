@@ -66,9 +66,10 @@
             margin-top: 10px;
         }
 
-        audio {
+        audio, video {
             width: 100%;
             margin-top: 10px;
+            border-radius: 8px;
         }
 
         footer {
@@ -174,6 +175,28 @@
         </div>
     </section>
 
+    <!-- ΝΕΑ ΕΝΟΤΗΤΑ: Φιλμογραφία & Video Player -->
+    <section>
+        <h2>Φιλμογραφία</h2>
+
+        <p class="quote">
+            «Η κινούμενη εικόνα είναι απλώς το φως που αρνείται να σβήσει μέσα στο σκοτάδι.»
+        </p>
+
+        <p>
+            Κάθε πλαίσιο αποτελεί μια προσπάθεια να παγώσει ο χρόνος, να αποτυπωθεί μια αλήθεια 
+            που ξεπερνά τις λέξεις. Ακόμα κι όταν όλα γύρω αλλάζουν, η τέχνη παραμένει μια σταθερή 
+            υπενθύμιση ότι η ελπίδα βρίσκει πάντα τον δρόμο της προς το φως.
+        </p>
+
+        <p><b>Sambruai (2026)</b></p>
+
+        <video controls>
+            <source src="samburai.mp4" type="video/mp4">
+            Ο browser σου δεν υποστηρίζει την αναπαραγωγή βίντεο.
+        </video>
+    </section>
+
 </div>
 
 <footer>
@@ -191,11 +214,9 @@ window.addEventListener("DOMContentLoaded", () => {
     if (entered === password) {
         document.body.style.display = "block";
 
-        // Εκκίνηση ήχου αμέσως μετά την αλληλεπίδραση με το prompt
         const playPromise = bgAudio.play();
         if (playPromise !== undefined) {
             playPromise.catch(() => {
-                // Αν ο browser μπλοκάρει το αυτόματο play, ξεκινάει στο πρώτο κλικ στην οθόνη
                 window.addEventListener("click", () => {
                     bgAudio.play();
                 }, { once: true });
@@ -206,7 +227,6 @@ window.addEventListener("DOMContentLoaded", () => {
         document.body.style.display = "block";
     }
 
-    // Διακοπή του twinpeaks.mp3 όταν πατηθεί το Play στο άλλο player
     mainAudio.addEventListener("play", () => {
         bgAudio.pause();
         bgAudio.currentTime = 0;
