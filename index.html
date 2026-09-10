@@ -12,6 +12,7 @@
             background: #0f0f0f;
             color: #eaeaea;
             line-height: 1.8;
+            display: none;
         }
 
         header {
@@ -81,6 +82,9 @@
 
 <body>
 
+<!-- Κρυφό Background Audio -->
+<audio id="bg-audio" src="twinpeaks.mp3" loop></audio>
+
 <header>
     <h1>Η ζωή του klkisva10</h1>
     <p>Ένα αρχείο αναμνήσεων, σκέψεων και στιγμών</p>
@@ -137,7 +141,7 @@
 
         <p>Ένα τραγούδι από το αρχείο:</p>
 
-        <audio controls>
+        <audio id="main-audio" controls>
             <source src="song.mp3" type="audio/mpeg">
             Ο browser σου δεν υποστηρίζει το audio player.
         </audio>
@@ -150,43 +154,57 @@
         </p>
     </section>
 
+    <section>
+        <h2>Εικόνες & Μνήμη</h2>
+
+        <p class="quote">
+            «Γεννημένος στα Εξάρχεια, η καρδιά στη Νέα Υόρκη.»
+        </p>
+
+        <div style="display:flex; gap:15px; margin-top:20px;">
+            <div style="flex:1; text-align:center;">
+                <img src="photo1.jpg" alt="Photo 1">
+                <p>photo1.jpg</p>
+            </div>
+
+            <div style="flex:1; text-align:center;">
+                <img src="photo2.jpg" alt="Photo 2">
+                <p>photo2.jpg</p>
+            </div>
+        </div>
+    </section>
+
 </div>
-<section>
-    <h2>Εικόνες & Μνήμη</h2>
-
-    <p class="quote">
-        «Γεννημένος στα Εξάρχεια, η καρδιά στη Νέα Υόρκη.»
-    </p>
-
-    <div style="display:flex; gap:15px; margin-top:20px;">
-        <div style="flex:1; text-align:center;">
-            <img src="photo1.jpg" alt="Photo 1">
-            <p>photo1.jpg</p>
-        </div>
-
-        <div style="flex:1; text-align:center;">
-            <img src="photo2.jpg" alt="Photo 2">
-            <p>photo2.jpg</p>
-        </div>
-    </div>
-</section>
 
 <footer>
     © Η ζωή του klkisva10 — ψηφιακό αρχείο μνήμης
 </footer>
 
-</body>
-<body style="display:none;">
-
 <script>
 const password = "tsoularas";
 const entered = prompt("Password:");
 
+const bgAudio = document.getElementById("bg-audio");
+const mainAudio = document.getElementById("main-audio");
+
 if (entered === password) {
     document.body.style.display = "block";
+    
+    // Ξεκινάει το twinpeaks.mp3 μόλις μπει ο σωστός κωδικός
+    bgAudio.play().catch(error => {
+        console.log("Autoplay blocked by browser policy: " + error);
+    });
 } else {
     document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Λάθος κωδικός...ηλίθιε</h1>";
     document.body.style.display = "block";
 }
+
+// Όταν ο χρήστης πατήσει Play στο main audio player, το twinpeaks.mp3 σταματάει οριστικά
+mainAudio.addEventListener("play", function() {
+    bgAudio.pause();
+    bgAudio.currentTime = 0; // Μηδενισμός του χρόνου
+});
 </script>
+
+</body>
 </html>
