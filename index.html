@@ -83,7 +83,7 @@
 <body>
 
 <!-- Κρυφό Background Audio -->
-<audio id="bg-audio" src="twinpeaks.mp3" loop></audio>
+<audio id="bg-audio" src="twinpeaks.mp3" loop preload="auto"></audio>
 
 <header>
     <h1>Η ζωή του klkisva10</h1>
@@ -181,28 +181,36 @@
 </footer>
 
 <script>
-const password = "tsoularas";
-const entered = prompt("Password:");
+window.addEventListener("DOMContentLoaded", () => {
+    const password = "tsoularas";
+    const entered = prompt("Password:");
 
-const bgAudio = document.getElementById("bg-audio");
-const mainAudio = document.getElementById("main-audio");
+    const bgAudio = document.getElementById("bg-audio");
+    const mainAudio = document.getElementById("main-audio");
 
-if (entered === password) {
-    document.body.style.display = "block";
-    
-    // Ξεκινάει το twinpeaks.mp3 μόλις μπει ο σωστός κωδικός
-    bgAudio.play().catch(error => {
-        console.log("Autoplay blocked by browser policy: " + error);
+    if (entered === password) {
+        document.body.style.display = "block";
+
+        // Εκκίνηση ήχου αμέσως μετά την αλληλεπίδραση με το prompt
+        const playPromise = bgAudio.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // Αν ο browser μπλοκάρει το αυτόματο play, ξεκινάει στο πρώτο κλικ στην οθόνη
+                window.addEventListener("click", () => {
+                    bgAudio.play();
+                }, { once: true });
+            });
+        }
+    } else {
+        document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;color:#fff;'>Λάθος κωδικός...ηλίθιε</h1>";
+        document.body.style.display = "block";
+    }
+
+    // Διακοπή του twinpeaks.mp3 όταν πατηθεί το Play στο άλλο player
+    mainAudio.addEventListener("play", () => {
+        bgAudio.pause();
+        bgAudio.currentTime = 0;
     });
-} else {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:100px;'>Λάθος κωδικός...ηλίθιε</h1>";
-    document.body.style.display = "block";
-}
-
-// Όταν ο χρήστης πατήσει Play στο main audio player, το twinpeaks.mp3 σταματάει οριστικά
-mainAudio.addEventListener("play", function() {
-    bgAudio.pause();
-    bgAudio.currentTime = 0; // Μηδενισμός του χρόνου
 });
 </script>
 
